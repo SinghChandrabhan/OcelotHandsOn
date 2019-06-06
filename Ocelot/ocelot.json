@@ -1,0 +1,56 @@
+{
+    "ReRoutes": [
+      {
+        "DownstreamPathTemplate": "/api/value",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 5000
+          }
+        ],
+        "UpstreamPathTemplate": "/firstapi",
+        "UpstreamHttpMethod": [
+          "Get",
+          "Post",
+          "Put",
+          "Delete",
+          "Options"
+        ],
+        "AuthenticationOptions": {
+          "AuthenticationProviderKey": "A_VERY_SECRET_KEy",
+          "AllowedScopes": []
+        },
+        "Key": "first"
+      },
+        {
+            "DownstreamPathTemplate": "/api/value1",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5001
+                }
+            ],
+            "UpstreamPathTemplate": "/secondapi",
+            "UpstreamHttpMethod": [
+                "Get",
+                "Post",
+                "Put",
+                "Delete",
+                "Options"
+            ],
+            "Key": "second"
+        }
+    ],
+    "Aggregates": [
+        {
+            "ReRouteKeys": [
+                "first",
+                "second"
+            ],
+            "UpstreamPathTemplate": "/"
+            // "Aggregator": "FakeDefinedAggregator"
+        }
+    ]
+}
