@@ -1,17 +1,17 @@
-.git/
-.vs/
-.vscode/
+/.git/
+/.vs/
+/.vscode/
 
 
-ocelot/.vs/
-ocelot/.vscode/
-ocelot/bin/
-ocelot/obj/
+/ocelot/.vs/
+/ocelot/.vscode/
+/ocelot/bin/
+/ocelot/obj/
 
-webapi/.vs/
-webapi/.vscode/
-webapi/bin/
-webapi/obj/
+/webapi/.vs/
+/webapi/.vscode/
+/webapi/bin/
+/webapi/obj/
 
 /webapi2/.vs/
 /webapi2/.vscode/
