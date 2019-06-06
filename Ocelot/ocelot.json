@@ -18,30 +18,42 @@
           "Options"
         ],
         "AuthenticationOptions": {
-          "AuthenticationProviderKey": "A_VERY_SECRET_KEy",
+          "AuthenticationProviderKey": "",
           "AllowedScopes": []
         },
-        "Key": "first"
-      },
-        {
-            "DownstreamPathTemplate": "/api/value1",
-            "DownstreamScheme": "http",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "localhost",
-                    "Port": 5001
-                }
-            ],
-            "UpstreamPathTemplate": "/secondapi",
-            "UpstreamHttpMethod": [
-                "Get",
-                "Post",
-                "Put",
-                "Delete",
-                "Options"
-            ],
-            "Key": "second"
+        "Key": "first",
+        //"RateLimitOptions": {
+        //  "ClientWhitelist": [],
+        //  "EnableRateLimiting": true,
+        //  "Period": "5m",
+        //  "PeriodTimespan": 360,
+        //  "Limit": 2
+        //},
+        "QoSOptions": {
+          "ExceptionsAllowedBeforeBreaking": 2,
+          "DurationOfBreak": 10000,
+          "TimeoutValue": 2000
         }
+      },
+      {
+        "DownstreamPathTemplate": "/api/value1",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 5001
+          }
+        ],
+        "UpstreamPathTemplate": "/secondapi",
+        "UpstreamHttpMethod": [
+          "Get",
+          "Post",
+          "Put",
+          "Delete",
+          "Options"
+        ],
+        "Key": "second"
+      }
     ],
     "Aggregates": [
         {

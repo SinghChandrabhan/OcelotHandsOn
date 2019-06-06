@@ -15,6 +15,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Ocelot.Middleware;
 using Ocelot.DependencyInjection;
+using Ocelot.Provider.Polly;
 
 namespace Ocelot
 {
@@ -47,7 +48,7 @@ namespace Ocelot
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddOcelot(Configuration);
+            services.AddOcelot(Configuration).AddPolly();            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
