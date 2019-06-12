@@ -1,0 +1,21 @@
+# docker stack deploy --compose-file=docker-stack.yml voting_stack
+version: "3"
+services:
+  nodeimageapp:
+    image: nodeappimg
+    networks:
+      - frontend
+    ports:
+      - 5123:8123
+    deploy:
+      replicas: 1
+  nodevideoapp:
+    image: nodeappveo
+    networks:
+      - frontend
+    ports:
+      - 5124:8124
+    deploy:
+      replicas: 2
+networks:
+  frontend:

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 
 namespace webapi2.Controllers
 {
@@ -10,11 +12,23 @@ namespace webapi2.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+
+        private readonly ILogger _logger;
+        private readonly IConfiguration _configuration;
+        public ValuesController(ILogger<ValuesController> logger, IConfiguration configuration)
+        {
+            _logger = logger;
+            _configuration = configuration;
+        }
+
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "webAPI2: {class: classname, _objectId:webapi2, msg: we then have output from api2}" };
+            var Message = $"About page visited at {DateTime.UtcNow.ToLongTimeString()}";
+            _logger.LogInformation("_configuration.", Message);
+            return new string[] { _configuration.GetValue<string>("ExtraSettingNotInSettingsFile") + "webAPI2: {class: classname, _objectId:webapi2, msg: we then have output from api2}" };
         }
 
         // GET api/values/5
