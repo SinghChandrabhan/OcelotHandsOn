@@ -13,7 +13,11 @@ namespace webapi.Controllers
     public class ValuesController : ControllerBase
     {
         // GET api/values
-        [HttpGet]
+        /// <summary>
+        /// A secured action. Token must be passed
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]       
         public ActionResult<IEnumerable<string>> Get()
         {
 

@@ -16,3 +16,11 @@ FROM microsoft/dotnet:aspnetcore-runtime
 WORKDIR /app
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "webapi2.dll"]
+
+# docker run -it -v c:/Data:/app/dataVol  chandrabhan/aspnetapp  // notice full path
+# docker run -it -v myvol:/app/dataVol  chandrabhan/aspnetapp  //for windows container
+
+
+# docker run -it --mount type=bind,source=c:/Data,target=/app/dataVol chandrabhan/aspnetapp
+# docker create vol
+# docker run -it --mount source=myvol,target=/app/dataVol  chandrabhan/aspnetapp
