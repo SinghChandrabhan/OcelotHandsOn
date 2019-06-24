@@ -28,7 +28,12 @@ namespace webapi2.Controllers
         {
             var Message = $"About page visited at {DateTime.UtcNow.ToLongTimeString()}";
             _logger.LogInformation("_configuration.", Message);
-            return new string[] { _configuration.GetValue<string>("ExtraSettingNotInSettingsFile") + "webAPI2: {class: classname, _objectId:webapi2, msg: we then have output from api2}" };
+            return new string[] {
+                "ExtraSettingNotInSettingsFile:"
+                +_configuration.GetValue<string>("ExtraSettingNotInSettingsFile")
+                +"CUSTOMCONNSTR_MONGO:"
+                +_configuration.GetConnectionString("CUSTOMCONNSTR_MONGO")
+                + "webAPI2: {class: classname, _objectId:webapi2, msg: we then have output from api2}" };
         }
 
         // GET api/values/5
