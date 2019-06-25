@@ -38,7 +38,7 @@ ENTRYPOINT ["dotnet", "webapi2.dll"]
 #--dns-name-label dockerworkloadapi \
 #--ports 80
 #--azure-file-volume-account-name filesharestorageacc \
-#--azure-file-volume-account-key WIcSxPJcGfOQvSvCjpiT0tejkBHiw2C2ad+BWNp09WEuSJ4r0ZB5D+lUiufMXjZBclJOQPqWBpe02qu0eq8/bA== \
+#--azure-file-volume-account-key <azure-file-volume-account-key> \
 #--azure-file-volume-share-name dockervol \
 #--azure-file-volume-mount-path /app/vol
 #
